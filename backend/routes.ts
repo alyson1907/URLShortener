@@ -2,7 +2,7 @@ const exp = require('express')
 const router = exp.Router()
 
 // services
-const short = require('./urlShortener')
+import * as short from './urlShortener'
 
 router.post('/shorten', short.createURL)
 

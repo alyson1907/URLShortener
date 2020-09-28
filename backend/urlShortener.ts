@@ -6,6 +6,6 @@ const createURL = async (req: Request, res: Response, next: Function) => {
   return 'ok'
 }
 
-module.exports = {
-  createURL,
+export {
+  createURL
 }

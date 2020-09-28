@@ -1,5 +1,5 @@
 const env = process.env.NODE_ENV || 'development'
-import express from 'express'
+import express, { Request, Response } from 'express'
 import router from './routes'
 const app = express()
 import { errorHandler } from './error'
