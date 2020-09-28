@@ -1,8 +1,8 @@
 const env = process.env.NODE_ENV || 'development'
-import express, { Request, Response } from 'express'
+import express from 'express'
 import router from './routes'
 const app = express()
-import errorHandler from './errorHandler'
+import { errorHandler } from './error'
 
 const PORT = process.env.PORT || 3000
 
