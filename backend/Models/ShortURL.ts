@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const schema = new mongoose.Schema(
   {
-    shortened: {
+    short: {
       type: String,
       required: true,
       trim: true,
@@ -19,4 +19,4 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 )
 
-export default mongoose.model('ShortenedURL', schema)
+export default mongoose.model('ShortURL', schema)
