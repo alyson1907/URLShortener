@@ -1,11 +1,15 @@
 const env = process.env.NODE_ENV || 'development'
-import express, { Request, Response } from 'express'
+import dotenv from 'dotenv'
+dotenv.config()
+import './initializeDB'
+import express from 'express'
 import router from './routes'
-const app = express()
 import { errorHandler } from './error'
 
+const app = express()
 const PORT = process.env.PORT || 3000
 
+app.use(express.json())
 app.use('/', router)
 app.use(errorHandler)
 

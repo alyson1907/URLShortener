@@ -1,9 +1,12 @@
 import { Request, Response } from 'express'
+import mongoose from 'mongoose'
 import { createError } from './error'
+import ShortURL from './Models/ShortURL'
 
 const createURL = async (req: Request, res: Response, next: Function) => {
-  next(createError(302, 'my error', [1, 3, 5, 7]))
-  return 'ok'
+  const body = req.body
+  await ShortURL.create({ short: 'short', original: body.url })
+  return res.send('Alrahgh')
 }
 
 export { createURL }
