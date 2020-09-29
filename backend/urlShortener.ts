@@ -5,7 +5,7 @@ import ShortURL from './Models/ShortURL'
 
 const createURL = async (req: Request, res: Response, next: Function) => {
   const body = req.body
-  const entity = await ShortURL.create({ short: 'short', original: body.url })
+  await ShortURL.create({ short: 'short', original: body.url })
   return res.send('Alrahgh')
 }
 
