@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { ValidationError } from 'yup'
 
 interface Error {
   status?: number
@@ -9,8 +10,18 @@ interface Error {
 }
 
 const errorHandler = async (error: any, req: Request, res: Response, next: any) => {
-  const status = error.status || 500
-  res.status(status).json({ error })
+  console.log('[ErrorHandler] ', error)
+  let status = error.status || 500
+  let resBody = { error: {} }
+
+  // Handling errors
+  // yup validation
+  if (error instanceof ValidationError) {
+    status = 400
+    resBody.error = error
+  }
+
+  res.status(status).json(resBody)
 }
 
 const createError = (status: number, message: string, err?: Array<any>, context?: String) => {
