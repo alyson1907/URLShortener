@@ -1,7 +1,7 @@
-const env = process.env.NODE_ENV || 'development'
 import dotenv from 'dotenv'
 dotenv.config()
 import './initializeDB'
+const env = process.env.NODE_ENV || 'development'
 import morgan from 'morgan'
 import express from 'express'
 import router from './routes'

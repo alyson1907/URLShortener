@@ -3,8 +3,9 @@ import { Request, Response } from 'express'
 interface Error {
   status?: number
   message?: string
-  err?: any,
+  err?: any
   context?: String
+  internal?: boolean
 }
 
 const errorHandler = async (error: any, req: Request, res: Response, next: any) => {
@@ -18,6 +19,7 @@ const createError = (status: number, message: string, err?: Array<any>, context?
   error.message = message
   error.err = err
   error.context = context
+  error.internal = true
   return error
 }
 
