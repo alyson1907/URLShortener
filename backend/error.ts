@@ -3,19 +3,21 @@ import { Request, Response } from 'express'
 interface Error {
   status?: number
   message?: string
-  err?: any
+  err?: any,
+  context?: String
 }
 
 const errorHandler = async (error: any, req: Request, res: Response, next: any) => {
   const status = error.status || 500
-  res.status(status).json({ error: error })
+  res.status(status).json({ error })
 }
 
-const createError = (status: number, message: string, err: Array<any>) => {
+const createError = (status: number, message: string, err?: Array<any>, context?: String) => {
   const error: Error = new Error()
   error.status = status
   error.message = message
   error.err = err
+  error.context = context
   return error
 }
 
