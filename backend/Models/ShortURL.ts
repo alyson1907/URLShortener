@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { IShortURL } from 'types'
 import { AutoIncrement } from '../initializeDB'
 
 const schema = new mongoose.Schema(
@@ -22,4 +23,4 @@ const schema = new mongoose.Schema(
 
 schema.plugin(AutoIncrement)
 
-export default mongoose.model('ShortURL', schema)
+export default mongoose.model<IShortURL>('ShortURL', schema)
