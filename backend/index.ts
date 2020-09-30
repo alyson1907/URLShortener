@@ -10,8 +10,8 @@ import { errorHandler } from './error'
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.use(morgan('dev'))
-app.use(express.json())
+app.use(morgan('dev')) // logger
+app.use(express.json()) // parsing body
 app.use('/', router)
 app.use(errorHandler)
 

@@ -19,25 +19,36 @@ const errorHandler = async (err: any, req: Request, res: Response, next: any) =>
   let message = err.message
   let context = err.context || null
   let error = err
+  // Response
+  let resBody = err
 
   // Handling errors
-  // yup validation
-  if (err instanceof ValidationError) {
-    status = 400
-    key = errorKeys.validation
-  } else if (err instanceof AssertionError) {
-    status = 400
-    key = errorKeys.assertion
-  } else if (err instanceof mongoose.Error.CastError) {
-    status = 400
-    key = errorKeys.cast
+  if (!err.internal) {
+    // yup validation
+    if (err instanceof ValidationError) {
+      status = 400
+      key = errorKeys.validation
+    } else if (err instanceof AssertionError) {
+      status = 400
+      key = errorKeys.assertion
+    } else if (err instanceof mongoose.Error.CastError) {
+      status = 400
+      key = errorKeys.cast
+    }
+    resBody = createError(status, key, message, error, context, false)
   }
 
-  let resBody = createError(status, key, message, error, context, false)
   return res.status(status).json(resBody).send()
 }
 
-const createError = (statusCode: number, key: string, message: string, err?: Array<any>, context?: string, internal = true) => {
+const createError = (
+  statusCode: number,
+  key: string,
+  message: string,
+  err?: Array<any>,
+  context?: string,
+  internal = true
+) => {
   const error: IError = new Error()
   error.status = statusCode
   error.key = key
@@ -50,6 +61,7 @@ const createError = (statusCode: number, key: string, message: string, err?: Arr
 
 const errorKeys = {
   invalidParam: 'INVALID_PARAM',
+  invalidShortUrl: 'INVALID_SHORT_URL',
   notFound: 'NOT_FOUND',
   validation: 'VALIDATION_ERROR',
   assertion: 'ASSERTION_ERROR',
