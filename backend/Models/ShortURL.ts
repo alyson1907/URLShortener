@@ -8,7 +8,6 @@ const schema = new mongoose.Schema(
     short: {
       type: String,
       trim: true,
-      lowercase: true,
       unique: true,
     },
 
@@ -16,7 +15,6 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      lowercase: true,
     },
   },
   { _id: false, timestamps: true }
