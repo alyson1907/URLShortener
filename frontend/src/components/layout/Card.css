@@ -1,25 +1,52 @@
 .Card{
     flex: 1;
-    border: 3px solid #000;
+    border: 3px solid grey;
     border-radius: 10px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: #cececece;
     margin: 20px 600px;
     display: flex;
     flex-direction: column;
-   min-width: 300px;
+    min-width: 300px;
+    font-family: fantasy;
+    
 }
 
 .Card .Conteudo{
-    background-color: #000;
-    color: #fff;
+    background-color: #cececece;
+    color: #000;
     padding: 45;
     flex: 1;
+    
+
    
 }
 .Card .Footer{
-    background-color: #fff;
-    color: black;
-    text-align: center;
-    padding: 100px 200px;
+    background-color: #cececece;
+    color: #000;
+    
+    padding: 0px 0px;
+    /* background-image: url(https://i.pinimg.com/originals/f3/84/3a/f3843a88adcbaefbb0404f3c40034b30.png); */
+}
+
+.input-button {
+    background-image: url(https://i.pinimg.com/originals/f3/84/3a/f3843a88adcbaefbb0404f3c40034b30.png);
+    padding: 100px 100px ;
+}
+
+.Card .input-button .Button{
+    background-color: #cecece;
+    padding: 20px;
+    box-shadow: #cececece;
+    border:3px solid #cececece;
+    border-radius: 10px;
+
+}
+
+.Card .input-button .input {
+    padding: 20px 100px;
+    box-shadow: #cececece;
+    border:3px solid #cececece;
+    border-radius: 10px;
+  
 }
