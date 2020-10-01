@@ -17,6 +17,11 @@ const schema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+
+    clicks: {
+      type: Number,
+      default: 0,
+    },
   },
   { _id: false, timestamps: true }
 )
