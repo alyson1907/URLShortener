@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.ts",
     "dev": "nodemon",
+    "deploy:dev": "git push heroku-dev develop",
     "test": "jest --coverage --silent"
   },
   "author": "Alyson Matheus Maruyama Nascimento",
