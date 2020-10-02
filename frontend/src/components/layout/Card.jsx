@@ -8,7 +8,7 @@ import './Card.css'
 
 
 export default (props) => {
-    //event track
+    //event tracka
     const [grabInput, setNewgrabInput] = useState(null)
     
     function  handleChange (event) {
