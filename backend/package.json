@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "node index.ts -- port=$PORT",
+    "start": "ts-node index.ts -- port=$PORT",
     "dev": "nodemon -- port=$PORT",
-    "deploy:dev": "git push heroku-dev backend/deploy && heroku ps:scale web=1",
+    "deploy:dev": "git push heroku-dev develop:main && heroku ps:scale web=1",
     "test": "jest --coverage --silent"
   },
   "author": "Alyson Matheus Maruyama Nascimento",
