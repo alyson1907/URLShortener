@@ -5,9 +5,10 @@
   "main": "index.ts",
   "scripts": {
     "start": "npm run build:clean && npm run build && node ./build/index.js -- port=$PORT",
+    "dev": "nodemon -- port=$PORT",
     "build": "tsc",
     "build:clean": "rm -rf build",
-    "dev": "nodemon -- port=$PORT",
+    "heroku-postbuild": "npm run build",
     "deploy:dev": "git push heroku-dev backend/deploy:main && heroku ps:scale web=1",
     "test": "jest --coverage --silent"
   },
