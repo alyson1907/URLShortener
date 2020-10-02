@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "node index.ts",
-    "dev": "nodemon",
+    "start": "node index.ts -- port=$PORT",
+    "dev": "nodemon -- port=$PORT",
+    "deploy:dev": "git push heroku-dev backend/deploy && heroku ps:scale web=1",
+    "deploy:setup": "heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack && heroku buildpacks:add heroku/nodejs && heroku config:set PROJECT_PATH=backend/",
     "test": "jest --coverage --silent"
   },
   "author": "Alyson Matheus Maruyama Nascimento",
