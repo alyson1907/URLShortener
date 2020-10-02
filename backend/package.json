@@ -8,7 +8,7 @@
     "dev": "nodemon -- port=$PORT",
     "build": "tsc",
     "build:clean": "rm -rf build",
-    "heroku-postbuild": "npm run build",
+    "heroku-postinstall": "npm run build",
     "deploy:dev": "git push heroku-dev backend/deploy:main && heroku ps:scale web=1",
     "test": "jest --coverage --silent"
   },
