@@ -8,9 +8,9 @@ import './Card.css'
 
 
 export default (props) => {
-    
+    //event track
     const [grabInput, setNewgrabInput] = useState(null)
-   
+    
     function  handleChange (event) {
        setNewgrabInput(event.target.value);
        
