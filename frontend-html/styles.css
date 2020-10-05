@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0 32px;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+}
+
+.card-wrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 12px 24px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 0 3px #333;
+  -webkit-box-shadow: 0 0 3px #333;
+  box-shadow: 0 0 4px #333;
+  text-align: center;
+}
+
+.card-wrapper .input-wrapper {
+  display: flex;
+  padding: 16px 0;
+}
+
+#text-input {
+  display: flex;
+  flex: 8;
+  padding: 16px;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+#url-input-button {
+  display: flex;
+  flex: 1;
+  background-color: #29a;
+  color: #fff
+}
