@@ -44,15 +44,29 @@
 }
 
 .Card .input-button .input {
-    padding: 20px 100px;
+    padding: 20px 1px;
     box-shadow: #cececece;
     border:3px solid #cececece;
     border-radius: 10px;
-  
+    inline-size: 150px;
+    font-family: fantasy;
+    font-size: 20px;
+    
+    width: 77%;
+    height: 20px;
+}
+
+input ,input[place-holder]{
+    text-align: center;
 }
 
 .Card .input-button .uwu{
     font-family: fantasy;
     color: #000;
     font-size: smaller;
+    background-color: white;
+    border:3px solid #cececece;
+    display: flex;
+    flex: 1;
+    padding: 10px 50px;
 }

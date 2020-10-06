@@ -59,12 +59,12 @@ export default (props) => {
         
         <div className='input-button'>
            
-            <label><input  className = "input" type='text' placeholder = "coloque o link aqui" onChange={handleChange}></input></label>
+            <label><input  className = "input" type='text' placeholder = "coloque o link aqui       " onChange={handleChange}></input></label>
             <button type="button" className= "Button" onClick={handleClick}>
             Click me!
             
             </button>
-            <h1 className="uwu" type = "text">https://ppshort.herokuapp.com/{uwu}</h1>
+            <card className="uwu" type = "text">https://ppshort.herokuapp.com/{uwu}</card>
             
         </div>
 
