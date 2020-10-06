@@ -5,11 +5,13 @@ const env = process.env.NODE_ENV || 'development'
 import morgan from 'morgan'
 import express from 'express'
 import router from './routes'
+import cors from 'cors'
 import { errorHandler } from './error'
 
 const app = express()
 const PORT = process.env.PORT || 3000
 
+app.use(cors())
 app.use(morgan('dev')) // logger
 app.use(express.json()) // parsing body
 app.use('/', router)
