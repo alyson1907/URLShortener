@@ -7,15 +7,44 @@
     <title></title>
   </head>
   <body>
-    <div class="card-wrapper">
-      <h1>Insira o link a ser encurtado</h1>
-      <div class="input-wrapper">
-        <input id="url-text-input" value="https://www.youtube.com/" type="text" placeholder="Cole seu link aqui" />
-        <button id="url-input-button">
-          <h2>Encurtar!</h2>
-        </button>
+    <div class="container">
+      <div class="card-wrapper">
+        <h1>Insira o link a ser encurtado</h1>
+        <div class="input-wrapper">
+          <input
+            id="url-text-input"
+            class="url-input"
+            value="https://www.youtube.com/"
+            type="text"
+            placeholder="Cole seu link aqui"
+          />
+          <button id="url-input-button" class="input-button">
+            <h2>Encurtar!</h2>
+          </button>
+        </div>
+
+        <!-- Errors -->
+        <div id="errors"></div>
+
+        <!-- Copy to Clipboard -->
+        <div class="input-wrapper">
+          <p class="card-item-text">Link encurtado:</p>
+          <input
+            id="copy-url-input"
+            value="!!!!"
+            class="url-input"
+            readonly="true"
+            type="text"
+            placeholder="Link encurtado"
+          />
+          <button id="copy-button" class="input-button">
+            <img src="./assets/copy.png" class="copy-icon" />
+          </button>
+        </div>
       </div>
-      <p id="text-error"></p>
+      <div>
+        <p>Auraura</p>
+      </div>
     </div>
   </body>
   <script src="script.js"></script>

@@ -2,6 +2,7 @@ p, h1, h2, h3, h4, input {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 p {
@@ -15,4 +16,19 @@ h1 {
 
 h2 {
   font-size: 18px;
+}
+
+@media(max-width: 550px) {
+  p {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 16px;
+  }
 }
