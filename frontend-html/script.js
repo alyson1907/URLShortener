@@ -1,7 +1,7 @@
 const baseUrl = 'https://ppshort.herokuapp.com'
 
 // TODO implement url validation
-const isValidURL = (url) => true
+const isValidURL = (url) => false
 
 const showErrors = (errors = [], time = 1500) => {
   const errorElem = document.getElementById('errors')
