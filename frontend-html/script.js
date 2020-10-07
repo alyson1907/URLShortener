@@ -1,9 +1,25 @@
 const baseUrl = 'https://ppshort.herokuapp.com'
 
 // TODO implement url validation
-const isValidURL = (url) => false
+const isValidURL = (url) => /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(
+  url
+)
 
-const showErrors = (errors = [], time = 1500) => {
+const mapErrorKeysToDisplay = (key) => {
+  switch (key) {
+  case 'VALIDATION_ERROR':
+    return 'A URL é inválida'
+
+  case 'INVALID_SHORT_URL':
+    return 'A URL encurtada fornecida é inválida ou não existe'
+
+  default:
+    console.log('Unknown error key:', key)
+    return 'Um erro desconhecido ocorreu'
+  }
+}
+
+const showErrors = (errors = [], time = 2000) => {
   const errorElem = document.getElementById('errors')
   errors.forEach((err) => (errorElem.innerHTML += `<p>${err}*<p>`))
   errorElem.classList.add('show')
@@ -49,12 +65,31 @@ const createShortURL = async (url) => {
   const data = await response.json()
 
   if (!response.ok) {
-    // TODO implement complete ErrorHandler
-    // alert('Error while creating URL')
+    const displayMsg = mapErrorKeysToDisplay(data.key)
+    showErrors([displayMsg])
+    return
+  }
+
+  return data
+}
+
+const getShortURLInfo = async (url) => {
+  const shortCode = url.split(baseUrl + '/').pop()
+  const response = await fetch(`${baseUrl}/url/info?short=${shortCode}`)
+  const { data } = await response.json()
+  const info = data[0]
+
+  if (!response.ok) {
+    const displayMsg = mapErrorKeysToDisplay(data.key)
+    showErrors([displayMsg])
     return
   }
   console.log(data)
-  return data
+
+  return {
+    clicks: info.clicks,
+    creationDate: new Date(info.createdAt),
+  }
 }
 
 document.getElementById('url-input-button').onclick = handleSubmitClick

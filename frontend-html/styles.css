@@ -89,5 +89,9 @@ html, body {
   color: white;
 }
 
+.author-text, .author-text * {
+  font-size: 14px;
+}
+
 @media (max-width: 550px) {
 }
