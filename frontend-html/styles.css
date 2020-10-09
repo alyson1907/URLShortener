@@ -63,6 +63,7 @@ html, body {
 
 .input-button:hover {
   background-color: #448;
+  border-radius: 15px;
 }
 
 .errors {
@@ -74,7 +75,7 @@ html, body {
   transition: max-height 1s ease-in-out;
 }
 
-#errors.show {
+.errors.show {
   color: red;
   max-height: 500px;
 }
@@ -87,6 +88,23 @@ html, body {
   width: 32px;
   height: 32px;
   color: white;
+}
+
+.table-container {
+  max-height: 0px;
+  overflow: hidden;
+  transition: 3s;
+}
+
+.table-container.show {
+  max-height: 500px;
+}
+
+.stats-table {
+  width: 100%;
+  background-color: #efefef;
+  border: 1px solid #333;
+  border-radius: 3px;
 }
 
 .author-text, .author-text * {

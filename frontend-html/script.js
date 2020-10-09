@@ -51,11 +51,21 @@ const handleSubmitClick = async () => {
 }
 
 const handleStatsClick = async () => {
-  const input = document.getElementById('stats-url-input')
-  const urlOrCode = input.value
+  const inputElem = document.getElementById('stats-url-input')
+  const statsElems = {
+    container: document.getElementById('stats-table-container'),
+    clicks: document.getElementById('stats-clicks'),
+    createdAt: document.getElementById('stats-creation-date'),
+  }
+  const urlOrCode = inputElem.value
   const code = urlOrCode.split(baseUrl + '/').pop()
 
   const data = await getShortURLInfo(`${baseUrl}/${code}`)
+  if (data) {
+    statsElems.container.classList.add('show')
+    statsElems.clicks.innerText = data.clicks
+    statsElems.createdAt.innerText = data.creationDate.toLocaleString('pt-BR')
+  }
   console.log(data)
 }
 
@@ -92,11 +102,14 @@ const getShortURLInfo = async (url) => {
   if (!response.ok) {
     const displayMsg = mapErrorKeysToDisplay(data.key)
     errorElem.innerHTML = `<p>${displayMsg}*</p>`
+    errorElem.classList.add('show')
     return
   }
 
   if (!info) {
+    console.log('p>O link ou código não foi encon')
     errorElem.innerHTML = '<p>O link ou código não foi encontrado*</p>'
+    errorElem.classList.add('show')
     return
   }
 

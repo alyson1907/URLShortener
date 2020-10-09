@@ -33,7 +33,13 @@
       <div class="card-wrapper">
         <h1>Estatísticas</h1>
         <div class="input-wrapper">
-          <input id="stats-url-input" class="url-input" type="text" placeholder="Link encurtado ou código (ex: p9Z) aqui" required="true" />
+          <input
+            id="stats-url-input"
+            class="url-input"
+            type="text"
+            placeholder="Link encurtado ou código (ex: p9Z) aqui"
+            required="true"
+          />
           <button id="stats-button" class="input-button">
             <h2>Visualizar</h2>
           </button>
@@ -41,6 +47,21 @@
 
         <!-- Errors -->
         <div id="stats-errors" class="errors"></div>
+
+        <div id="stats-table-container" class="table-container">
+          <table class="stats-table">
+            <thead>
+              <th>Número de Cliques</th>
+              <th>Data de criação</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="stats-clicks"></td>
+                <td id="stats-creation-date"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <!-- Authors -->
