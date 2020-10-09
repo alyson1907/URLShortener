@@ -18,23 +18,38 @@
         </div>
 
         <!-- Errors -->
-        <div id="errors"></div>
+        <div id="errors" class="errors"></div>
 
         <!-- Copy to Clipboard -->
         <div class="input-wrapper">
           <p class="card-item-text">Link encurtado:</p>
-          <input id="copy-url-input" class="url-input" adonly="true" type="text" placeholder="Link encurtado" />
+          <input id="copy-url-input" class="url-input" readonly="true" type="text" placeholder="Link encurtado" />
           <button id="copy-button" class="input-button">
             <img src="./assets/copy.png" class="copy-icon" />
           </button>
         </div>
       </div>
+
+      <div class="card-wrapper">
+        <h1>Estatísticas</h1>
+        <div class="input-wrapper">
+          <input id="stats-url-input" class="url-input" type="text" placeholder="Link encurtado ou código (ex: p9Z) aqui" required="true" />
+          <button id="stats-button" class="input-button">
+            <h2>Visualizar</h2>
+          </button>
+        </div>
+
+        <!-- Errors -->
+        <div id="stats-errors" class="errors"></div>
+      </div>
+
+      <!-- Authors -->
       <div>
         <p class="author-text">
           Developed by
-          <a href="https://github.com/alyson1907">Alyson Maruyama</a>
+          <a href="https://github.com/alyson1907" target="_blank">Alyson Maruyama</a>
           and
-          <a href="https://github.com/leozinhuwu">Leonardo Almeida</a>
+          <a href="https://github.com/leozinhuwu" target="_blank">Leonardo Almeida</a>
         </p>
       </div>
     </div>

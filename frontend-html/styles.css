@@ -65,7 +65,7 @@ html, body {
   background-color: #448;
 }
 
-#errors {
+.errors {
   color: red;
   font-size: 16px;
   text-align: start;

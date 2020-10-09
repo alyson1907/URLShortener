@@ -11,7 +11,7 @@ const mapErrorKeysToDisplay = (key) => {
     return 'A URL é inválida'
 
   case 'INVALID_SHORT_URL':
-    return 'A URL encurtada fornecida é inválida ou não existe'
+    return 'O link encurtado fornecido é inválido ou não existe'
 
   default:
     console.log('Unknown error key:', key)
@@ -19,7 +19,7 @@ const mapErrorKeysToDisplay = (key) => {
   }
 }
 
-const showErrors = (errors = [], time = 2000) => {
+const showInputErrors = (errors = [], time = 2000) => {
   const errorElem = document.getElementById('errors')
   errors.forEach((err) => (errorElem.innerHTML += `<p>${err}*<p>`))
   errorElem.classList.add('show')
@@ -40,7 +40,7 @@ const handleSubmitClick = async () => {
   const isValid = isValidURL(url)
 
   if (!isValid) {
-    showErrors(['A URL é inválida'])
+    showInputErrors(['A URL é inválida'])
   } else {
     const { short } = await createShortURL(url)
     const completeUrl = `${baseUrl}/${short}`
@@ -48,6 +48,15 @@ const handleSubmitClick = async () => {
     const copyUrlContainer = document.getElementById('copy-url-input')
     copyUrlContainer.value = completeUrl
   }
+}
+
+const handleStatsClick = async () => {
+  const input = document.getElementById('stats-url-input')
+  const urlOrCode = input.value
+  const code = urlOrCode.split(baseUrl + '/').pop()
+
+  const data = await getShortURLInfo(`${baseUrl}/${code}`)
+  console.log(data)
 }
 
 const handleCopyClick = () => {
@@ -66,7 +75,7 @@ const createShortURL = async (url) => {
 
   if (!response.ok) {
     const displayMsg = mapErrorKeysToDisplay(data.key)
-    showErrors([displayMsg])
+    showInputErrors([displayMsg])
     return
   }
 
@@ -74,6 +83,7 @@ const createShortURL = async (url) => {
 }
 
 const getShortURLInfo = async (url) => {
+  const errorElem = document.getElementById('stats-errors')
   const shortCode = url.split(baseUrl + '/').pop()
   const response = await fetch(`${baseUrl}/url/info?short=${shortCode}`)
   const { data } = await response.json()
@@ -81,10 +91,14 @@ const getShortURLInfo = async (url) => {
 
   if (!response.ok) {
     const displayMsg = mapErrorKeysToDisplay(data.key)
-    showErrors([displayMsg])
+    errorElem.innerHTML = `<p>${displayMsg}*</p>`
     return
   }
-  console.log(data)
+
+  if (!info) {
+    errorElem.innerHTML = '<p>O link ou código não foi encontrado*</p>'
+    return
+  }
 
   return {
     clicks: info.clicks,
@@ -93,4 +107,5 @@ const getShortURLInfo = async (url) => {
 }
 
 document.getElementById('url-input-button').onclick = handleSubmitClick
+document.getElementById('stats-button').onclick = handleStatsClick
 document.getElementById('copy-button').onclick = handleCopyClick
