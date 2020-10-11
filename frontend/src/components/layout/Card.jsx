@@ -15,6 +15,7 @@ export default (props) => {
     //event tracka
     const [grabInput, setNewgrabInput] = useState(null)
     const [uwu , setNewUwu] = useState(null)
+    const [errors, setNewErrors] = useState(null)
     
    
    
@@ -28,19 +29,27 @@ export default (props) => {
 
 
    async function handleClick(event){
-        	event.preventDefault() 
-      console.log(grabInput)
+        
+    
+    event.preventDefault() 
+         console.log(grabInput)
       
       const uwus = await axios.post('https://ppshort.herokuapp.com/shorten', {"url": grabInput})
+      
       .then ( response => {
-        console.log(response.data.short)
-        setNewUwu(response.data.short)
+        console.log(response.request)
+        if(response.request.status === 201){
+            setNewUwu(response.data.short)
+        }
+        
         
            
             
       } )
         .catch(error => {
-            console.log(error)
+            console.log(error.request)
+           setNewErrors("Erro: " + error.request.status + " URL INVALIDA")
+           
         })
         
         
@@ -49,6 +58,9 @@ export default (props) => {
     
     
     return (
+    
+    
+    
     <div className="Card">
         <p className="Conteudo">
             Encurta Link !!!
@@ -65,6 +77,7 @@ export default (props) => {
             
             </button>
             <card className="uwu" type = "text">https://ppshort.herokuapp.com/{uwu}</card>
+            <p className = "error" type = "text">{errors}</p>
             
         </div>
 

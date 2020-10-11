@@ -70,3 +70,14 @@ input ,input[place-holder]{
     flex: 1;
     padding: 10px 50px;
 }
+
+.Card .input-button  .error{
+    color: red;
+    font-size: 20px;
+    transition: 2s;
+}
+
+.Card .input-button .error:focus {
+    font-size: 0px;
+}
+
