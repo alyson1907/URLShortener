@@ -10,6 +10,7 @@
     min-width: 300px;
     font-family: fantasy;
     
+    
 }
 
 .Card .Conteudo{
@@ -17,7 +18,7 @@
     color: #000;
     padding: 45;
     flex: 1;
-    
+    margin: auto;
 
    
 }
@@ -40,6 +41,7 @@
     box-shadow: #cececece;
     border:3px solid #cececece;
     border-radius: 10px;
+    margin: auto;
 
 }
 
@@ -54,10 +56,12 @@
     
     width: 77%;
     height: 20px;
+    margin: auto;
 }
 
 input ,input[place-holder]{
     text-align: center;
+
 }
 
 .Card .input-button .uwu{
@@ -72,12 +76,10 @@ input ,input[place-holder]{
 }
 
 .Card .input-button  .error{
-    color: red;
+    color:red;
     font-size: 20px;
     transition: 2s;
 }
 
-.Card .input-button .error:focus {
-    font-size: 0px;
-}
+
 

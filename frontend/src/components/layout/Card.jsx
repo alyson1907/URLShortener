@@ -48,8 +48,9 @@ export default (props) => {
       } )
         .catch(error => {
             console.log(error.request)
-           setNewErrors("Erro: " + error.request.status + " URL INVALIDA")
-           
+           setNewErrors("Error: " + error.request.status + " URL INVÁLIDA")
+           setTimeout(() => {  
+               setNewErrors(""); }, 2000);
         })
         
         
