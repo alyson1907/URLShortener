@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./fonts.css" />
+    <title></title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="card-wrapper">
+        <h1>Insira o link a ser encurtado</h1>
+        <div class="input-wrapper">
+          <input id="url-text-input" class="url-input" type="text" placeholder="Cole seu link aqui" required="true" />
+          <button id="url-input-button" class="input-button">
+            <h2>Encurtar!</h2>
+          </button>
+        </div>
+
+        <!-- Errors -->
+        <div id="errors" class="errors"></div>
+
+        <!-- Copy to Clipboard -->
+        <div class="input-wrapper">
+          <p class="card-item-text">Link encurtado:</p>
+          <input id="copy-url-input" class="url-input" readonly="true" type="text" placeholder="Link encurtado" />
+          <button id="copy-button" class="input-button">
+            <img src="./assets/copy.png" class="copy-icon" />
+          </button>
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <h1>Estatísticas</h1>
+        <div class="input-wrapper">
+          <input
+            id="stats-url-input"
+            class="url-input"
+            type="text"
+            placeholder="Link encurtado ou código (ex: p9Z) aqui"
+            required="true"
+          />
+          <button id="stats-button" class="input-button">
+            <h2>Visualizar</h2>
+          </button>
+        </div>
+
+        <!-- Errors -->
+        <div id="stats-errors" class="errors"></div>
+
+        <div id="stats-table-container" class="table-container">
+          <table class="stats-table">
+            <thead>
+              <th>Número de Cliques</th>
+              <th>Data de criação</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="stats-clicks"></td>
+                <td id="stats-creation-date"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Authors -->
+      <div>
+        <p class="author-text">
+          Developed by
+          <a href="https://github.com/alyson1907" target="_blank">Alyson Maruyama</a>
+          and
+          <a href="https://github.com/leozinhuwu" target="_blank">Leonardo Almeida</a>
+        </p>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
