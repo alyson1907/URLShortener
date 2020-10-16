@@ -4,18 +4,11 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-<<<<<<< HEAD
-    "start": "node index.ts -- port=$PORT",
-    "dev": "nodemon -- port=$PORT",
-    "deploy:dev": "git push heroku-dev backend/deploy && heroku ps:scale web=1",
-    "deploy:setup": "heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack && heroku buildpacks:add heroku/nodejs && heroku config:set PROJECT_PATH=backend/",
-=======
     "start": "node ./build/index.js -- port=$PORT",
     "dev": "nodemon -- port=$PORT",
     "build": "tsc",
     "heroku-postinstall": "npm run build",
     "deploy:dev": "git push heroku-dev develop:master && heroku ps:scale web=1",
->>>>>>> 5f104767c3664f29624680b743117200478730cf
     "test": "jest --coverage --silent"
   },
   "author": "Alyson Matheus Maruyama Nascimento",
